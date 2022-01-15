@@ -7,17 +7,28 @@
 # При печати дома требуются следующие данные: тип дома,
 # общая площадь, оставшаяся площадь, список названий мебели.
 
-class Furniture:
-    """Тип дома, общая площадь, мебели"""
-    def __init__(self, bedroom = 4, wardrobe = 2, table = 1.5):
+class House:
+    type = None
+    area = 0
+    def __init__(self, bedroom, garderob, chair):
         self.bedroom = bedroom
-        self.wardrobe = wardrobe
-        self.table = table
-        print("Дом состоит из следующих комнат в квадратных метрах")
-        print('Спальня в кв/м ' + str(self.bedroom) +'\nГардероб в кв/м ' + str(self.wardrobe) + '\nСтол в кв/м ' + str(self.table))
+        self.garderob = garderob
+        self.chair = chair
+    def furniture (self, type, area):
+        print("спальня",{self.bedroom}, "гардероб" ,{self.garderob},'стол',{self.chair})
+        self.area = area
+        self.type = type
+        print('оставщаяся площадь', self.area - self.bedroom - self.chair - self.garderob)
+        print('общая площадь',self.area)
+        print('тип дома',self.type)
+newHouse = House(4, 2, 1.5)
+print(newHouse.__dict__)
+newHouse.furniture("Особняк", 30)
 
-house1= Furniture()
-print(house1)
+
+
+
+
 
 
 
